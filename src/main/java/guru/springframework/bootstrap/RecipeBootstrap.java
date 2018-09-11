@@ -77,7 +77,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         }
 
         UnitOfMeasure eachUom = eachUomOptional.get();
-        UnitOfMeasure tableSPoonUom = tableSpoonUomOptional.get();
+        UnitOfMeasure tablespoonUom = tableSpoonUomOptional.get();
         UnitOfMeasure teaspoonUom = teaSpoonOptional.get();
         UnitOfMeasure dashUom = dashUomOptional.get();
         UnitOfMeasure pintUom = pintUomOptional.get();
@@ -118,10 +118,14 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         guacRecipe.addIngredient(new Ingredient("ripe avocados", new BigDecimal(2), eachUom));
         guacRecipe.addIngredient(new Ingredient("Kosher salt", new BigDecimal(.5), teaspoonUom));
-        guacRecipe.addIngredient(new Ingredient("fresh lime juice", new BigDecimal(2), tableSPoonUom));
+        guacRecipe.addIngredient(new Ingredient("fresh lime juice", new BigDecimal(2), tablespoonUom));
 
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
+
+        guacRecipe.setUrl("http://www.simplyrecipes.com/recipes/perfect_guacamole/");
+        guacRecipe.setServings(4);
+        guacRecipe.setSource("Simply Recipes");
 
         recipes.add(guacRecipe);
 
