@@ -55,7 +55,6 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeToRecipeCommand.convert(findById(l));
     }
 
-
     @Override
     public RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand) {
         //called detached because it is still detached from the hibernate context
@@ -66,5 +65,10 @@ public class RecipeServiceImpl implements RecipeService {
         log.debug("Saved RecipeId: " + savedRecipe.getId());
 
         return recipeToRecipeCommand.convert(savedRecipe);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        recipeRepository.deleteById(id);
     }
 }
